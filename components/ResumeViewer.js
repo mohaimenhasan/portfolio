@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import { motion } from 'framer-motion';
 import { FaDownload, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
@@ -10,6 +10,22 @@ const ResumeViewer = ({ pdfUrl }) => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+  const [pageWidth, setPageWidth] = useState(600);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return undefined;
+
+    const updatePageWidth = () => {
+      setPageWidth(Math.min(600, Math.max(1, container.clientWidth - 32)));
+    };
+
+    updatePageWidth();
+    const observer = new ResizeObserver(updatePageWidth);
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
 
   const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
@@ -35,7 +51,7 @@ const ResumeViewer = ({ pdfUrl }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="bg-gray-800 p-4 rounded-lg shadow-xl max-w-full">
+      <div ref={containerRef} className="bg-gray-800 p-4 rounded-lg shadow-xl max-w-full">
         {isLoading && (
           <div className="flex justify-center items-center h-[600px] w-[400px] sm:w-[600px] bg-gray-900">
             <div className="text-white text-center">
@@ -62,7 +78,7 @@ const ResumeViewer = ({ pdfUrl }) => {
             pageNumber={pageNumber}
             renderTextLayer={false}
             renderAnnotationLayer={false}
-            width={600}
+            width={pageWidth}
             className="mx-auto"
           />
         </Document>
@@ -72,6 +88,7 @@ const ResumeViewer = ({ pdfUrl }) => {
             <button
               onClick={previousPage}
               disabled={pageNumber <= 1}
+              aria-label="Previous page"
               className={`p-2 rounded ${pageNumber <= 1 ? 'text-gray-500' : 'hover:bg-gray-700'}`}
             >
               <FaChevronLeft />
@@ -84,6 +101,7 @@ const ResumeViewer = ({ pdfUrl }) => {
             <button
               onClick={nextPage}
               disabled={pageNumber >= numPages}
+              aria-label="Next page"
               className={`p-2 rounded ${pageNumber >= numPages ? 'text-gray-500' : 'hover:bg-gray-700'}`}
             >
               <FaChevronRight />

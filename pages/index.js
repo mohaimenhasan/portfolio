@@ -6,57 +6,30 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FaArrowRight, FaBriefcase, FaLaptopCode, FaUserAlt, FaAward } from 'react-icons/fa';
 
-const codeSnippet = `// Welcome to my portfolio
-import { Mohaimen } from 'portfolio';
-
-const skills = [
-  '.NET', 'C#', 'ASP.NET', 'MVC', 'Web API',
-  'Node.js', 'React', 'Next.js',
-  'TypeScript', 'Node.js', 'Python',
-  'Azure', 'AWS', 'LLM', 'Machine Learning',
-  'Docker', 'SQL', 'NoSQL', 'GraphQL', 'CI/CD'
+const codeSnippet = `// Mohaimen Khan
+const focus = [
+  'LLM evaluation and agent systems',
+  'Developer tools and code intelligence',
+  'Cloud platforms and distributed systems'
 ];
 
-function Introduction() {
-  return (
-    <Mohaimen 
-      role="Senior Software Engineer @ Microsoft"
-      focus="AI Incubation"
-      passion="Building innovative tools for developers"
-    />
-  );
-}`;
+const recentWork = {
+  team: 'GitHub Applied Science and Model Evaluation',
+  platform: 'GitHub Copilot'
+};`;
 
 const awards = [
   {
-    title: "U.S. Patent: System and Method for Tenant Controlled and Automatically Optimized Rent Bidding",
-    description: "Patent for an innovative rent bidding platform that optimizes rent bidding for tenants, created during my PEY Co-op.",
-    url: "https://patents.justia.com/patent/20210049677",
-    year: "2021"
+    title: "AI-based code generation using a dynamically constructed symbol graph and code skeletons",
+    description: "Co-inventor on Microsoft patent application EP 4647896 A1, published November 12, 2025. Patent pending; this is a published application, not a granted patent.",
+    url: "https://patents.google.com/patent/EP4647896A1/en",
+    year: "EP 4647896 A1 · 2025"
   },
   {
-    title: "Patent Pending: Reducing Hallucination for LLM-based Code Generation",
-    description: "Developed techniques to significantly reduce hallucinations in large language models for code generation applications.",
-    url: null,
-    year: "2024"
-  },
-  {
-    title: "U of T Engineering Alumni Feature",
-    description: "Featured for patenting a tool created during PEY Co-op that optimizes rent bidding for tenants.",
-    url: "https://news.engineering.utoronto.ca/u-of-t-engineering-alumnus-patents-tool-created-during-pey-co-op-that-optimizes-rent-bidding-for-tenants/",
-    year: "2021"
-  },
-  {
-    title: "The Financial Express: Journey in AI Innovation",
-    description: "Featured in The Financial Express for contributions to AI innovation and development.",
-    url: "https://thefinancialexpress.com.bd/youth-and-entrepreneurship/mohaimens-journey-in-ai-innovation",
-    year: "2024"
-  },
-  {
-    title: "ECE Alumni Success Story",
-    description: "Featured by University of Toronto's Electrical & Computer Engineering department for successful patent work.",
-    url: "https://www.ece.utoronto.ca/news/ece-alumnus-patents-tool-created-during-pey-co-op-that-optimizes-rent-bidding-for-tenants/",
-    year: "2021"
+    title: "System and method for electronic rental platform",
+    description: "Co-inventor on Royal Bank of Canada patent application CA 3090161 A1, published February 14, 2021. Patent pending; this is a published application, not a granted patent.",
+    url: "https://patents.google.com/patent/CA3090161A1/en",
+    year: "CA 3090161 A1 · 2021"
   }
 ];
 
@@ -82,13 +55,14 @@ export default function Home() {
               </h1>
               
               <div className="text-xl md:text-2xl text-gray-300 mb-6 font-mono">
-                <span className="text-code-green">&gt;</span> Software Engineer
+                <span className="text-code-green">&gt;</span> Senior Software Engineer
                 <span className="text-white animate-cursor-blink ml-1">_</span>
               </div>
               
               <p className="text-gray-300 text-lg mb-8">
-                Building innovative solutions for complex problems at Microsoft's Core AI division.
-                I'm passionate about developer tools, AI technologies, and creating impactful software.
+                I'm a software engineer at Microsoft working on GitHub Copilot evaluation and applied science.
+                I build AI systems, developer tools, and cloud experiences, with earlier work spanning Copilot
+                for Visual Studio, Azure Dev Center, Amazon Learning Products, and Windows Packaging.
               </p>
               
               <div className="flex flex-wrap gap-3 mb-8">
@@ -147,8 +121,8 @@ export default function Home() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-code-blue transition-colors">
-                <h3 className="text-code-yellow font-mono mb-2">Microsoft</h3>
-                <p className="text-gray-300 mb-4">Leading development on AI-powered experiences for developer productivity tools.</p>
+                <h3 className="text-code-yellow font-mono mb-2">GitHub Copilot Evaluation</h3>
+                <p className="text-gray-300 mb-4">Building evaluation infrastructure supporting 300K+ submitted runs and 10M+ task evaluations per month.</p>
                 <Link href="/projects" className="text-code-blue hover:underline flex items-center">
                   <span className="mr-2">Learn more</span>
                   <FaArrowRight size={12} />
@@ -156,8 +130,8 @@ export default function Home() {
               </div>
               
               <div className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-code-blue transition-colors">
-                <h3 className="text-code-yellow font-mono mb-2">Full-Stack Development</h3>
-                <p className="text-gray-300 mb-4">Experience with React, Node.js, TypeScript, Next.js and modern cloud architectures.</p>
+                <h3 className="text-code-yellow font-mono mb-2">Developer Experiences</h3>
+                <p className="text-gray-300 mb-4">From Visual Studio code intelligence to cloud workstation workflows across VS Code and Visual Studio.</p>
                 <Link href="/about" className="text-code-blue hover:underline flex items-center">
                   <span className="mr-2">View skills</span>
                   <FaArrowRight size={12} />
@@ -165,8 +139,8 @@ export default function Home() {
               </div>
               
               <div className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-code-blue transition-colors">
-                <h3 className="text-code-yellow font-mono mb-2">Machine Learning</h3>
-                <p className="text-gray-300 mb-4">Building AI solutions that enhance developer workflows and productivity.</p>
+                <h3 className="text-code-yellow font-mono mb-2">Cloud Systems</h3>
+                <p className="text-gray-300 mb-4">Experience building Azure and AWS services, distributed workflows, and production developer tooling.</p>
                 <Link href="/projects" className="text-code-blue hover:underline flex items-center">
                   <span className="mr-2">See projects</span>
                   <FaArrowRight size={12} />
@@ -182,9 +156,9 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.6 }}
           >
             <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <span className="text-code-green mr-2">#</span> 
+              <span className="text-code-green mr-2">#</span>
               <FaAward className="text-code-yellow mr-2" />
-              Patents & Recognition
+              Patent Applications
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -23,6 +23,7 @@ const AwardCard = ({
               href={url} 
               target="_blank" 
               rel="noopener noreferrer"
+              aria-label={`Read publication details: ${title}`}
               className="text-gray-400 hover:text-white"
               whileHover={{ scale: 1.2 }}
             >
